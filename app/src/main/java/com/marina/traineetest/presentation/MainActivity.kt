@@ -1,7 +1,8 @@
-package com.marina.traineetest
+package com.marina.traineetest.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.marina.traineetest.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
