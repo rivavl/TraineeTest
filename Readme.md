@@ -95,3 +95,4 @@
   * Pull to refresh
     * Оценка - 1 час
     * Фактическое время -
+  * Внедрение Nav Component
