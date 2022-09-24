@@ -25,7 +25,7 @@ class RetrofitInstance {
                 .build()
         }
 
-        val coinApi by lazy {
+        val coinApi: CoinApi by lazy {
             retrofit.create(CoinApi::class.java)
         }
     }

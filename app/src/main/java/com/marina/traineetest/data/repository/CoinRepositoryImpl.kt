@@ -6,8 +6,11 @@ import com.marina.traineetest.data.network.CoinApi
 import com.marina.traineetest.domain.entity.CoinEntity
 import com.marina.traineetest.domain.repository.CoinRepository
 import com.marina.traineetest.domain.util.Resource
+import javax.inject.Inject
 
-class CoinRepositoryImpl(private val api: CoinApi) : CoinRepository {
+class CoinRepositoryImpl @Inject constructor(
+    private val api: CoinApi
+) : CoinRepository {
 
     override suspend fun getCoin(id: String): Resource<CoinEntity> {
         val response = api.getSingleCoin(id)

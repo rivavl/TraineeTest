@@ -6,8 +6,9 @@ import com.marina.traineetest.domain.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
+import javax.inject.Inject
 
-class GetSingleCurrencyUseCase(
+class GetSingleCurrencyUseCase @Inject constructor(
     private val repository: CoinRepository
 ) {
 
