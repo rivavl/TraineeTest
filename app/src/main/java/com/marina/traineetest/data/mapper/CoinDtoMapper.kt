@@ -1,6 +1,6 @@
 package com.marina.traineetest.data.mapper
 
-import com.marina.traineetest.data.dto.CoinDto
+import com.marina.traineetest.data.network.dto.CoinDto
 import com.marina.traineetest.domain.entity.CoinEntity
 
 fun List<CoinDto>.toDomain(): List<CoinEntity> {

@@ -14,8 +14,8 @@ class GetSingleCurrencyUseCase(
     suspend operator fun invoke(id: String): Flow<Resource<CoinEntity>> = flow {
         try {
             emit(Resource.Loading())
-            val coins = repository.getCoin(id)
-            emit(Resource.Success(coins.data!!))
+            val coin = repository.getCoin(id)
+            emit(coin)
         } catch (e: IOException) {
             emit(Resource.Error("Отсутствует интернет соединение\n Попробуйте позже"))
         } catch (e: Exception) {

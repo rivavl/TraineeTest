@@ -1,6 +1,6 @@
 package com.marina.traineetest.data.network
 
-import com.marina.traineetest.data.dto.CoinDto
+import com.marina.traineetest.data.network.dto.CoinDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

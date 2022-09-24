@@ -1,4 +1,4 @@
-package com.marina.traineetest.data.dto
+package com.marina.traineetest.data.network.dto
 
 import com.google.gson.annotations.SerializedName
 

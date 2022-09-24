@@ -15,7 +15,7 @@ class GetCurrencyListUseCase(
         try {
             emit(Resource.Loading())
             val coins = repository.getCoinsList(currency)
-            emit(Resource.Success(coins.data!!))
+            emit(coins)
         } catch (e: IOException) {
             emit(Resource.Error("Отсутствует интернет соединение\n Попробуйте позже"))
         } catch (e: Exception) {
