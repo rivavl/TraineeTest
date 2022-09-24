@@ -1,4 +1,4 @@
-package com.marina.traineetest.presentation
+package com.marina.traineetest.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
