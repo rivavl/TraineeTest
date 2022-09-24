@@ -2,6 +2,7 @@ package com.marina.traineetest.domain.use_case
 
 import com.marina.traineetest.domain.entity.CoinEntity
 import com.marina.traineetest.domain.repository.CoinRepository
+import com.marina.traineetest.domain.util.Error
 import com.marina.traineetest.domain.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -18,9 +19,9 @@ class GetCurrencyListUseCase @Inject constructor(
             val coins = repository.getCoinsList(currency)
             emit(coins)
         } catch (e: IOException) {
-            emit(Resource.Error("Отсутствует интернет соединение\n Попробуйте позже"))
+            emit(Resource.Error(Error.INTERNET_CONNECTION))
         } catch (e: Exception) {
-            emit(Resource.Error("Случилась какая-то ошибка :(\nПопробуем снова?"))
+            emit(Resource.Error(Error.UNKNOWN))
         }
     }
 }
