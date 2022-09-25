@@ -5,4 +5,7 @@
     <string name="currency_list">Список криптовалют</string>
     <string name="usd">USD</string>
     <string name="eur">EUR</string>
+    <string name="description">Описание</string>
+    <string name="Categories">Категории</string>
+    <string name="arrow_back">arrow back</string>
 </resources>
