@@ -14,8 +14,14 @@ fun CoinEntity.toCoin(): Coin {
     return Coin(
         id = id,
         name = name,
+        symbol = symbol,
         imageUrl = imageUrl,
         price = price,
-        priceChangePercentage = priceChangePercentage
+        priceChangePercentage = priceChangePercentage,
+        negativePercentage = isNegative(priceChangePercentage)
     )
+}
+
+private fun isNegative(percentage: String): Boolean {
+    return percentage.startsWith("-")
 }
