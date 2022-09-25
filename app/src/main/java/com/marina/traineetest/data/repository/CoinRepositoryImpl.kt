@@ -1,5 +1,6 @@
 package com.marina.traineetest.data.repository
 
+import android.util.Log
 import com.marina.traineetest.data.mapper.toDomain
 import com.marina.traineetest.data.mapper.toSingleCoinEntity
 import com.marina.traineetest.data.network.CoinApi

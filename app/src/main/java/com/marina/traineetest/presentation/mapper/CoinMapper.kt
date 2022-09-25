@@ -41,6 +41,6 @@ fun SingleCoinEntity.toCoinDetail(): CoinDetail {
         name = name,
         image = image,
         description = description,
-        categories = categories
+        categories = categories.toString().replace("[", "").replace("]", "")
     )
 }

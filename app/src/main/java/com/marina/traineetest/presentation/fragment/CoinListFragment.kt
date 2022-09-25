@@ -109,7 +109,10 @@ class CoinListFragment : Fragment(R.layout.fragment_coin_list) {
 
     private fun setupClickListener() {
         coinsListAdapter.onCoinItemClick = {
-
+            parentFragmentManager.beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, CoinDetailFragment.getInstance(it.id))
+                .commit()
         }
     }
 }

@@ -26,7 +26,12 @@ fun CoinInListDto.toCoinEntity(): CoinEntity {
  * Преобразование процентов в строку
  * */
 private fun percentageToString(percentage: Double): String {
-    return format(percentage) + "%"
+    val value = format(percentage) + "%"
+    return if (percentage < 0) {
+        value
+    } else {
+        "+$value"
+    }
 }
 
 /**

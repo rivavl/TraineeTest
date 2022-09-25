@@ -4,6 +4,7 @@ import com.marina.traineetest.data.network.dto.CoinInListDto
 import com.marina.traineetest.data.network.dto.detail.CoinDto
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CoinApi {
@@ -16,6 +17,6 @@ interface CoinApi {
         @Query("page") page: Int = 1
     ): Response<List<CoinInListDto>>
 
-    @GET("")
-    suspend fun getSingleCoin(id: String): Response<CoinDto>
+    @GET("coins/{id}")
+    suspend fun getSingleCoin(@Path("id") id: String): Response<CoinDto>
 }

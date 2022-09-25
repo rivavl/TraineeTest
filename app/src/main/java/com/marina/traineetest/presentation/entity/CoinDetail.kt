@@ -4,5 +4,5 @@ data class CoinDetail(
     val name: String,
     val image: String,
     val description: String,
-    val categories: List<String>,
+    val categories: String,
 )

@@ -33,6 +33,9 @@ class CoinAdapter :
             binding.tvPrice.text = coin.price
             binding.tvPercent.setTextColor(getPercentageColor(coin.negativePercentage, context))
             binding.tvPercent.text = coin.priceChangePercentage
+            itemView.setOnClickListener {
+                onCoinItemClick?.invoke(coin)
+            }
         }
     }
 
