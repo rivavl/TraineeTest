@@ -13,6 +13,7 @@ fun CoinDto.toCoinEntity(): CoinEntity {
     return CoinEntity(
         id = id,
         name = name,
+        symbol = symbol,
         imageUrl = imageUrl,
         price = format(currentPrice),
         priceChangePercentage = percentageToString(priceChangePercentage)

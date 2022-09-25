@@ -7,8 +7,13 @@ import retrofit2.http.Query
 
 interface CoinApi {
 
-    @GET("")
-    suspend fun getCoinsList(@Query("vs_currency") currency: String): Response<List<CoinDto>>
+    @GET("coins/markets")
+    suspend fun getCoinsList(
+        @Query("vs_currency") currency: String,
+        @Query("order") order: String = "market_cap_desc",
+        @Query("per_page") perPage: Int = 20,
+        @Query("page") page: Int = 1
+    ): Response<List<CoinDto>>
 
     @GET("")
     suspend fun getSingleCoin(id: String): Response<CoinDto>
