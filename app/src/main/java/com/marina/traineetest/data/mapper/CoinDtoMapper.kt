@@ -1,15 +1,17 @@
 package com.marina.traineetest.data.mapper
 
-import com.marina.traineetest.data.network.dto.CoinDto
+import com.marina.traineetest.data.network.dto.CoinInListDto
+import com.marina.traineetest.data.network.dto.detail.CoinDto
 import com.marina.traineetest.domain.entity.CoinEntity
+import com.marina.traineetest.domain.entity.SingleCoinEntity
 
-fun List<CoinDto>.toDomain(): List<CoinEntity> {
+fun List<CoinInListDto>.toDomain(): List<CoinEntity> {
     return map {
         it.toCoinEntity()
     }
 }
 
-fun CoinDto.toCoinEntity(): CoinEntity {
+fun CoinInListDto.toCoinEntity(): CoinEntity {
     return CoinEntity(
         id = id,
         name = name,
@@ -32,4 +34,13 @@ private fun percentageToString(percentage: Double): String {
  * */
 private fun format(value: Double, digits: Int = 2): String {
     return "%.${digits}f".format(value)
+}
+
+fun CoinDto.toSingleCoinEntity(): SingleCoinEntity {
+    return SingleCoinEntity(
+        name = name,
+        image = image.large,
+        description = description.data,
+        categories = categories
+    )
 }
