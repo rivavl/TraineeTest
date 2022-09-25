@@ -2,7 +2,7 @@ package com.marina.traineetest.data.network.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class CoinDto(
+data class CoinInListDto(
     @SerializedName("id")
     val id: String,
     @SerializedName("symbol")

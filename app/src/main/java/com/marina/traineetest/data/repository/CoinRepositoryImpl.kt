@@ -1,9 +1,11 @@
 package com.marina.traineetest.data.repository
 
-import com.marina.traineetest.data.mapper.toCoinEntity
+import android.util.Log
 import com.marina.traineetest.data.mapper.toDomain
+import com.marina.traineetest.data.mapper.toSingleCoinEntity
 import com.marina.traineetest.data.network.CoinApi
 import com.marina.traineetest.domain.entity.CoinEntity
+import com.marina.traineetest.domain.entity.SingleCoinEntity
 import com.marina.traineetest.domain.repository.CoinRepository
 import javax.inject.Inject
 
@@ -11,9 +13,9 @@ class CoinRepositoryImpl @Inject constructor(
     private val api: CoinApi
 ) : CoinRepository {
 
-    override suspend fun getCoin(id: String): CoinEntity? {
+    override suspend fun getCoin(id: String): SingleCoinEntity? {
         val response = api.getSingleCoin(id)
-        return response.body()?.toCoinEntity()
+        return response.body()?.toSingleCoinEntity()
     }
 
     override suspend fun getCoinsList(currency: String): List<CoinEntity>? {
