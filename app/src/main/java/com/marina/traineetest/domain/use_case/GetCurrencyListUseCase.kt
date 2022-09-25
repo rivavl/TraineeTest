@@ -17,7 +17,12 @@ class GetCurrencyListUseCase @Inject constructor(
         try {
             emit(Resource.Loading())
             val coins = repository.getCoinsList(currency)
-            emit(coins)
+
+            if (coins == null) {
+                emit(Resource.Error(Error.UNKNOWN))
+            } else {
+                emit(Resource.Success(coins))
+            }
         } catch (e: IOException) {
             emit(Resource.Error(Error.INTERNET_CONNECTION))
         } catch (e: Exception) {

@@ -16,11 +16,12 @@ class GetSingleCurrencyUseCase @Inject constructor(
         try {
             emit(Resource.Loading())
             val coin = repository.getCoin(id)
-            emit(coin)
+//            emit(coin)
         } catch (e: IOException) {
-            emit(Resource.Error("Отсутствует интернет соединение\n Попробуйте позже"))
+//            emit(Resource.Error("Отсутствует интернет соединение\n Попробуйте позже"))
         } catch (e: Exception) {
-            emit(Resource.Error("Случилась какая-то ошибка :(\nПопробуем снова?"))
+//            emit(Resource.Error("Случилась какая-то ошибка :(\nПопробуем снова?"))
         }
+
     }
 }
