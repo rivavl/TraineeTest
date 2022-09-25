@@ -18,16 +18,19 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="13dp"
+            app:selectionRequired="true"
             app:singleSelection="true">
 
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/usd"
                 style="@style/CustomChipStyle"
                 android:layout_width="89dp"
                 android:layout_height="wrap_content"
@@ -36,6 +39,7 @@
                 android:textAlignment="center" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/eur"
                 style="@style/CustomChipStyle"
                 android:layout_width="89dp"
                 android:layout_height="wrap_content"
@@ -92,6 +96,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
+        android:id="@+id/error_lt"
         layout="@layout/error_layout"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
