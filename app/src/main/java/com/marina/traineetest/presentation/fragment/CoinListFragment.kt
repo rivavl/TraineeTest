@@ -1,12 +1,14 @@
 package com.marina.traineetest.presentation.fragment
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.marina.traineetest.R
 import com.marina.traineetest.app.App
 import com.marina.traineetest.databinding.FragmentCoinListBinding
@@ -46,23 +48,23 @@ class CoinListFragment : Fragment(R.layout.fragment_coin_list) {
         setupRecyclerView()
         setupClickListeners()
         observeViewModel()
-        viewModel.getCoinsList(lastQueryCurrency)
+        viewModel.getCoinsList(lastQueryCurrency, false)
     }
 
     private fun setupClickListeners() {
         binding.usd.setOnClickListener {
             lastQueryCurrency = USD
-            viewModel.getCoinsList(USD)
+            viewModel.getCoinsList(USD, false)
         }
         binding.eur.setOnClickListener {
             lastQueryCurrency = EUR
-            viewModel.getCoinsList(EUR)
+            viewModel.getCoinsList(EUR, false)
         }
         binding.errorLt.btnTryAgain.setOnClickListener {
-            viewModel.getCoinsList(lastQueryCurrency)
+            viewModel.getCoinsList(lastQueryCurrency, false)
         }
         binding.srlRefresh.setOnRefreshListener {
-            viewModel.getCoinsList(lastQueryCurrency)
+            viewModel.refresh(lastQueryCurrency)
         }
     }
 
@@ -80,6 +82,20 @@ class CoinListFragment : Fragment(R.layout.fragment_coin_list) {
                 }
             }
         }
+        viewModel.refreshFailed.observe(viewLifecycleOwner) {
+            if (it) {
+                showSnackbar(requireContext().getString(R.string.refresh_error))
+                binding.srlRefresh.isRefreshing = false
+            }
+        }
+    }
+
+    private fun showSnackbar(info: String) {
+        Snackbar.make(
+            binding.root,
+            info,
+            Snackbar.LENGTH_LONG
+        ).show()
     }
 
     private fun setLoading() = with(binding) {
