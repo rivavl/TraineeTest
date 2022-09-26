@@ -61,6 +61,9 @@ class CoinListFragment : Fragment(R.layout.fragment_coin_list) {
         binding.errorLt.btnTryAgain.setOnClickListener {
             viewModel.getCoinsList(lastQueryCurrency)
         }
+        binding.srlRefresh.setOnRefreshListener {
+            viewModel.getCoinsList(lastQueryCurrency)
+        }
     }
 
     private fun observeViewModel() {
@@ -89,6 +92,7 @@ class CoinListFragment : Fragment(R.layout.fragment_coin_list) {
         progressBar.isVisible = false
         rvCoins.isVisible = true
         errorLt.layoutError.isVisible = false
+        srlRefresh.isRefreshing = false
         coinsListAdapter.submitList(coins)
     }
 
