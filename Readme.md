@@ -1,3 +1,13 @@
+## Стек
+* Kotlin
+* View
+* Coroutines
+* Retrofit
+* Dagger
+* Glide
+* MVVM/Clean Arch
+
+
 ## Описание задач
 
 ### Base
